@@ -54,14 +54,22 @@
 		F84EF77721408E17004BBD3B /* Homework8 */ = {
 			isa = PBXGroup;
 			children = (
-				F84EF77821408E17004BBD3B /* AppDelegate.swift */,
+				F84EF78A21408E32004BBD3B /* SupportingFiles */,
 				F84EF77A21408E17004BBD3B /* ViewController.swift */,
 				F84EF77C21408E17004BBD3B /* Main.storyboard */,
 				F84EF77F21408E18004BBD3B /* Assets.xcassets */,
-				F84EF78121408E18004BBD3B /* LaunchScreen.storyboard */,
 				F84EF78421408E18004BBD3B /* Info.plist */,
 			);
 			path = Homework8;
+			sourceTree = "<group>";
+		};
+		F84EF78A21408E32004BBD3B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F84EF77821408E17004BBD3B /* AppDelegate.swift */,
+				F84EF78121408E18004BBD3B /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
