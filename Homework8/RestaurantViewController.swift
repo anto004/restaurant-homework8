@@ -30,10 +30,11 @@ class RestaurantViewController: UIViewController {
                 }
                 
                 if let urlContent = data {
-                    let content = String(data: urlContent, encoding: String.Encoding.utf8)
-                    if let jsonData = content {
-                        Utils.parseJson(jsonData);
-                    }
+                    Utils.parseJson(urlContent);
+//                    let content = String(data: urlContent, encoding: String.Encoding.utf8)
+//                    if let jsonData = content {
+//                        
+//                    }
                 }
             }
 
