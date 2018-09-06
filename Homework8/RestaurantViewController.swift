@@ -9,39 +9,54 @@
 import UIKit
 
 class RestaurantViewController: UIViewController {
+    let latitude = 34.119193;
+    let longitude = -118.112650;
+
+    var restaurants = [String: String]();
     
     @IBAction func makeApiCall(_ sender: UIButton) {
-        let baseURL = "https://api.yelp.com/v3/businesses/search?term=restaurant&latitude=34.119193&longitude=-118.112650";
+        //Using Yelp API to find restaurants nearby
+        let baseURL = "https://api.yelp.com/v3/businesses/search?term=restaurant&latitude=\(self.latitude)&longitude=\(self.longitude)";
 
-        if let url = URL(string: baseURL){
-            let session = URLSession.shared;
+        //fetch restaurants nearby
+        apiCall(baseURL);
 
-            let request = NSMutableURLRequest(url: url);
-            request.httpMethod = "GET";
 
-            let token = "Bearer ssrhCpzL11gRI-IHI4sMw9gT09tSMSxnJQdhcRs5jtEIY8tp6j8zV0YAZWsyuUCWeSw4MGRcN_828M-8I7Lu2J2cHlOqf1iOvRBww90RTAEZnsa7ZqPssg8_H1yQW3Yx";
-
-            request.setValue(token, forHTTPHeaderField: "Authorization");
-
-            let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
-                if error != nil {
-                    print("error: \(error!)")
-                    return;
-                }
-                
-                if let urlContent = data {
-                    Utils.parseJson(urlContent);
-//                    let content = String(data: urlContent, encoding: String.Encoding.utf8)
-//                    if let jsonData = content {
-//                        
-//                    }
-                }
-            }
-
-            task.resume();
-
-        }
         
+    }
+
+    func apiCall(_ baseURL: String) {
+        DispatchQueue.global(qos: .userInitiated).async {
+
+            if let url = URL(string: baseURL){
+                let session = URLSession.shared;
+
+                let request = NSMutableURLRequest(url: url);
+                request.httpMethod = "GET";
+
+                let token = "Bearer ssrhCpzL11gRI-IHI4sMw9gT09tSMSxnJQdhcRs5jtEIY8tp6j8zV0YAZWsyuUCWeSw4MGRcN_828M-8I7Lu2J2cHlOqf1iOvRBww90RTAEZnsa7ZqPssg8_H1yQW3Yx";
+
+                request.setValue(token, forHTTPHeaderField: "Authorization");
+
+                let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
+                    if error != nil {
+                        print("error: \(error!)")
+                        return;
+                    }
+
+                    if let urlContent = data {
+                        //Parse Data
+                        self.restaurants = Utils.parseJson(urlContent);
+
+                        for (key, value) in self.restaurants {
+                            print("\(key) \(value)")
+                        }
+                    }
+                }
+
+                task.resume();
+            }
+        }
     }
     
     

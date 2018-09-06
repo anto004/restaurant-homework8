@@ -24,7 +24,7 @@ struct Utils {
                             for line in address {
                                 stringAddress.append(line);
                             }
-
+//                            print("\(name) \(stringAddress)")
                             dictionary[name] = stringAddress;
                         }
 
@@ -35,4 +35,5 @@ struct Utils {
 
         return dictionary;
     }
+
 }
