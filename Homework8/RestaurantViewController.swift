@@ -8,24 +8,17 @@
 
 import UIKit
 
-class RestaurantViewController: UIViewController {
+class RestaurantViewController: UITableViewController {
     let latitude = 34.119193;
     let longitude = -118.112650;
 
-    var restaurants = [String: String]();
+    var restaurants = [String]();
+    var restaurantDictionary = [String: String]();
     
-    @IBAction func makeApiCall(_ sender: UIButton) {
+    func apiCall() {
         //Using Yelp API to find restaurants nearby
         let baseURL = "https://api.yelp.com/v3/businesses/search?term=restaurant&latitude=\(self.latitude)&longitude=\(self.longitude)";
-
-        //fetch restaurants nearby
-        apiCall(baseURL);
-
-
         
-    }
-
-    func apiCall(_ baseURL: String) {
         DispatchQueue.global(qos: .userInitiated).async {
 
             if let url = URL(string: baseURL){
@@ -46,9 +39,11 @@ class RestaurantViewController: UIViewController {
 
                     if let urlContent = data {
                         //Parse Data
-                        self.restaurants = Utils.parseJson(urlContent);
+                        self.restaurantDictionary = Utils.parseJson(urlContent);
 
-                        for (key, value) in self.restaurants {
+                        for (key, value) in self.restaurantDictionary {
+                            self.restaurants.append(key);
+                            
                             print("\(key) \(value)")
                         }
                     }
@@ -60,14 +55,38 @@ class RestaurantViewController: UIViewController {
     }
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        print("restaurant view controller");
+        
+        //fetch restaurants nearby
+        apiCall();
+        
     }
-    */
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1;
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return restaurants.count;
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Restaurant", for: indexPath);
+        
+        let name = restaurants[indexPath.row];
+        let address = restaurantDictionary[name];
+        
+        if let cellLabel = cell.textLabel, let cellDetailLabel = cell.detailTextLabel {
+            cellLabel.text = name;
+            cellDetailLabel.text = address;
+        }
+        
+        return cell;
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Restaurnts With Yelp API"
+    }
 
 }
