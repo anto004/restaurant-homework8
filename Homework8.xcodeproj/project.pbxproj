@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8031DB42143446D007E2EF0 /* MapNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8031DB32143446D007E2EF0 /* MapNavigationViewController.swift */; };
 		F82A5B5E2141DC0800659CAB /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82A5B5D2141DC0800659CAB /* RestaurantTableViewCell.swift */; };
 		F82A5B64214203BE00659CAB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82A5B63214203BE00659CAB /* Restaurant.swift */; };
 		F82A5B66214216C900659CAB /* MyIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82A5B65214216C900659CAB /* MyIndicator.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F8031DB32143446D007E2EF0 /* MapNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationViewController.swift; sourceTree = "<group>"; };
 		F82A5B5D2141DC0800659CAB /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		F82A5B63214203BE00659CAB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F82A5B65214216C900659CAB /* MyIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIndicator.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				F84EF7912140AFE6004BBD3B /* Utils.swift */,
 				F82A5B5D2141DC0800659CAB /* RestaurantTableViewCell.swift */,
 				F82A5B65214216C900659CAB /* MyIndicator.swift */,
+				F8031DB32143446D007E2EF0 /* MapNavigationViewController.swift */,
 			);
 			path = Homework8;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				F82A5B5E2141DC0800659CAB /* RestaurantTableViewCell.swift in Sources */,
 				F82A5B64214203BE00659CAB /* Restaurant.swift in Sources */,
+				F8031DB42143446D007E2EF0 /* MapNavigationViewController.swift in Sources */,
 				F84EF78C21409D88004BBD3B /* RestaurantViewController.swift in Sources */,
 				F84EF77921408E17004BBD3B /* AppDelegate.swift in Sources */,
 				F84EF7922140AFE6004BBD3B /* Utils.swift in Sources */,

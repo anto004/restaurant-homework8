@@ -8,7 +8,11 @@
 
 import UIKit
 
-class RestaurantViewController: UITableViewController {
+//TODO: Master Detail view
+//Master: self Detail is Map view with user location to restaurant
+
+
+class RestaurantViewController: UITableViewController, UISplitViewControllerDelegate {
     let latitude = 34.119193;
     let longitude = -118.112650;
 
@@ -108,5 +112,25 @@ class RestaurantViewController: UITableViewController {
 
         return cell;
     }
+    
+    
+     // MARK: - Navigation
+    
+    override func awakeFromNib() {
+        super.awakeFromNib();
+        splitViewController?.delegate = self;
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        
+        return true;
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? MapNavigationViewController {
+            destination.title = "Let's get you there!"
+        }
+    }
+    
 
 }

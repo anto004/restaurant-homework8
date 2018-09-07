@@ -66,6 +66,7 @@
                                     <outlet property="restaurantAddress" destination="dJ0-4O-wzh" id="Ruo-x5-Amc"/>
                                     <outlet property="restaurantImage" destination="Kap-7c-rJ2" id="G0O-AK-lGk"/>
                                     <outlet property="restaurantName" destination="NKD-hJ-YYq" id="n2b-xM-bdn"/>
+                                    <segue destination="FnB-TL-ZEB" kind="showDetail" identifier="Location" id="IoA-O1-YKc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -81,7 +82,50 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uMM-BL-ON2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1261.5999999999999" y="1763.568215892054"/>
+            <point key="canvasLocation" x="2380" y="1292"/>
+        </scene>
+        <!--Map Navigation View Controller-->
+        <scene sceneID="M2I-HY-NVU">
+            <objects>
+                <viewController id="FnB-TL-ZEB" customClass="MapNavigationViewController" customModule="Homework8" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KfW-dh-Dch">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pIN-To-eYx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pIN-To-eYx" firstAttribute="top" secondItem="KfW-dh-Dch" secondAttribute="top" constant="64" id="DGG-zN-f6p"/>
+                            <constraint firstItem="pIN-To-eYx" firstAttribute="trailing" secondItem="KfW-dh-Dch" secondAttribute="trailing" id="XC7-xv-IyA"/>
+                            <constraint firstItem="pIN-To-eYx" firstAttribute="bottom" secondItem="KfW-dh-Dch" secondAttribute="bottom" constant="-49" id="ha4-fJ-pbH"/>
+                            <constraint firstItem="pIN-To-eYx" firstAttribute="leading" secondItem="KfW-dh-Dch" secondAttribute="leading" id="u5e-EN-HbW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sUi-dx-Fmn"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="pIN-To-eYx" id="Uhj-it-dyT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KtN-3H-i3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1392.8" y="2124.2878560719641"/>
+        </scene>
+        <!--Restaurant-->
+        <scene sceneID="1s0-e9-tMK">
+            <objects>
+                <splitViewController id="1LM-9b-I00" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Restaurant" id="642-BG-v8R"/>
+                    <connections>
+                        <segue destination="FnB-TL-ZEB" kind="relationship" relationship="detailViewController" id="dHE-2q-Isz"/>
+                        <segue destination="Yyj-7m-eaS" kind="relationship" relationship="masterViewController" id="PI5-zi-N6h"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M4J-D5-oBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="422" y="1764"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="y0T-nT-FzT">
@@ -98,7 +142,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miG-KV-rf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="284" y="1764"/>
+            <point key="canvasLocation" x="1394" y="1293"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kLf-d1-DcR">
@@ -111,7 +155,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="8Mv-Nh-cZh" kind="relationship" relationship="viewControllers" id="yXh-Kl-8ZO"/>
-                        <segue destination="Yyj-7m-eaS" kind="relationship" relationship="viewControllers" id="MVF-Y5-BBw"/>
+                        <segue destination="1LM-9b-I00" kind="relationship" relationship="viewControllers" id="Gqb-aR-a8Z"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flB-YE-7vV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,4 +166,7 @@
     <resources>
         <image name="ice-cream" width="360" height="480"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IoA-O1-YKc"/>
+    </inferredMetricsTieBreakers>
 </document>
