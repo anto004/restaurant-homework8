@@ -29,53 +29,62 @@
         <!--Root View Controller-->
         <scene sceneID="NET-XF-8oN">
             <objects>
-                <tableViewController id="abE-LA-ypN" customClass="RestaurantViewController" customModule="Homework8" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1PN-vt-jzD">
+                <tableViewController id="abE-LA-ypN" customClass="RestaurantTableViewController" customModule="Homework8" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1PN-vt-jzD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Restaurant" textLabel="PCb-ue-oqt" detailTextLabel="2dN-YB-poT" style="IBUITableViewCellStyleSubtitle" id="EiD-tD-kPm">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Restaurant" rowHeight="90" id="EiD-tD-kPm" customClass="RestaurantTableViewCell" customModule="Homework8" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EiD-tD-kPm" id="eY5-HD-u6L">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PCb-ue-oqt">
-                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ice-cream" translatesAutoresizingMaskIntoConstraints="NO" id="Kap-7c-rJ2">
+                                            <rect key="frame" x="0.0" y="-1" width="97" height="91"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKD-hJ-YYq">
+                                            <rect key="frame" x="121" y="0.0" width="238" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2dN-YB-poT">
-                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-4O-wzh">
+                                            <rect key="frame" x="121" y="44" width="238" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="restaurantAddress" destination="dJ0-4O-wzh" id="Ruo-x5-Amc"/>
+                                    <outlet property="restaurantImage" destination="Kap-7c-rJ2" id="G0O-AK-lGk"/>
+                                    <outlet property="restaurantName" destination="NKD-hJ-YYq" id="n2b-xM-bdn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="abE-LA-ypN" id="eWh-5L-eDI"/>
-                            <outlet property="delegate" destination="abE-LA-ypN" id="kVv-DZ-pKZ"/>
+                            <outlet property="dataSource" destination="abE-LA-ypN" id="uvs-qR-mg2"/>
+                            <outlet property="delegate" destination="abE-LA-ypN" id="V9r-w1-ifQ"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="369-Vg-Z5n"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uMM-BL-ON2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1270" y="1764"/>
+            <point key="canvasLocation" x="1263" y="1764"/>
         </scene>
-        <!--Item-->
+        <!--Restaurants-->
         <scene sceneID="y0T-nT-FzT">
             <objects>
                 <navigationController id="Yyj-7m-eaS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="lxE-O0-vnd"/>
+                    <tabBarItem key="tabBarItem" title="Restaurants" id="lxE-O0-vnd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wyA-gJ-OgY">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -107,4 +116,7 @@
             <point key="canvasLocation" x="-42" y="969"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ice-cream" width="360" height="480"/>
+    </resources>
 </document>
