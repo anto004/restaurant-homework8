@@ -13,6 +13,8 @@ class RestaurantViewController: UITableViewController {
     let longitude = -118.112650;
 
     var restaurants = [Restaurant]();
+
+    let myIndicator = MyIndicator();
     
     @IBOutlet var restaurantTableView: UITableView!
 
@@ -59,24 +61,28 @@ class RestaurantViewController: UITableViewController {
                                 self.restaurants.append(Restaurant(name: name, address: address, image: restaurantImage))
                             }
                         }
-                        self.restaurantTableView.reloadData();
+                        DispatchQueue.main.sync {
+                            self.restaurantTableView.reloadData();
+                            self.myIndicator.indicator.stopAnimating();
+                        }
+                        
                     }
                 }
 
                 task.resume();
             }
-            self.restaurantTableView.reloadData();
         }
     }
     
     
     override func viewDidLoad() {
-        print("restaurant view controller");
-        
+        myIndicator.callIndicator(controller: self);
+        myIndicator.indicator.startAnimating();
+
         //fetch restaurants nearby
         apiCall();
-        
     }
+
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
@@ -91,8 +97,8 @@ class RestaurantViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as?
                 RestaurantTableViewCell
                 else {
-            fatalError("The dequeued cell is not an instance of RestaurantTableViewCell")
-        }
+                    fatalError("The dequeued cell is not an instance of RestaurantTableViewCell")
+                }
 
         let restaurant = restaurants[indexPath.row];
 
@@ -101,10 +107,6 @@ class RestaurantViewController: UITableViewController {
         cell.restaurantAddress.text = restaurant.address;
 
         return cell;
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Restaurants - Yelp API"
     }
 
 }

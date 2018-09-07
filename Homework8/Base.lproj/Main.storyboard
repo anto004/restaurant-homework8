@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-591" y="1765"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Restaurants - Yelp API-->
         <scene sceneID="NET-XF-8oN">
             <objects>
                 <tableViewController id="abE-LA-ypN" customClass="RestaurantViewController" customModule="Homework8" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,7 +74,7 @@
                             <outlet property="delegate" destination="abE-LA-ypN" id="V9r-w1-ifQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="369-Vg-Z5n"/>
+                    <navigationItem key="navigationItem" title="Restaurants - Yelp API" id="369-Vg-Z5n"/>
                     <connections>
                         <outlet property="restaurantTableView" destination="1PN-vt-jzD" id="jC4-OZ-k8j"/>
                     </connections>
