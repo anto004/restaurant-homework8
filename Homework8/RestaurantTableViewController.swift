@@ -13,6 +13,9 @@ class RestaurantTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    
+    @IBOutlet var restaurantTableView: UITableView!
+    
     private func loadSamples(){
         let image1 = UIImage(named: "ice-cream");
         
@@ -39,5 +42,10 @@ class RestaurantTableViewController: UITableViewController {
         cell.restaurantAddress.text = "address goes here";
 
         return cell;
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        RestaurantViewController.apiCall();
     }
 }

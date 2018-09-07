@@ -12,9 +12,10 @@ class RestaurantViewController: UITableViewController {
     let latitude = 34.119193;
     let longitude = -118.112650;
 
-    var restaurants = [String]();
-    var restaurantDictionary = [String: String]();
+    var restaurants = [Restaurant]();
     
+    @IBOutlet var restaurantTableView: UITableView!
+
     func apiCall() {
         //Using Yelp API to find restaurants nearby
         let baseURL = "https://api.yelp.com/v3/businesses/search?term=restaurant&latitude=\(self.latitude)&longitude=\(self.longitude)";
@@ -39,18 +40,32 @@ class RestaurantViewController: UITableViewController {
 
                     if let urlContent = data {
                         //Parse Data
-                        self.restaurantDictionary = Utils.parseJson(urlContent);
+                        let restaurantsArray = Utils.parseJson(urlContent);
 
-                        for (key, value) in self.restaurantDictionary {
-                            self.restaurants.append(key);
-                            
-                            print("\(key) \(value)")
+                        for restaurant in restaurantsArray{
+                            //Get restaurant image
+                            var restaurantImage = UIImage();
+                            if let imageUrl = restaurant.imageUrl, let url = URL(string: imageUrl) {
+                                let imageContent = try? Data(contentsOf: url);
+
+                                if let imageData = imageContent {
+                                    if let image = UIImage(data: imageData){
+                                        restaurantImage = image;
+                                    }
+                                }
+                            }
+                            //Create new Restaurant object with image
+                            if let name = restaurant.name, let address = restaurant.address{
+                                self.restaurants.append(Restaurant(name: name, address: address, image: restaurantImage))
+                            }
                         }
+                        self.restaurantTableView.reloadData();
                     }
                 }
 
                 task.resume();
             }
+            self.restaurantTableView.reloadData();
         }
     }
     
@@ -72,21 +87,24 @@ class RestaurantViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Restaurant", for: indexPath);
-        
-        let name = restaurants[indexPath.row];
-        let address = restaurantDictionary[name];
-        
-        if let cellLabel = cell.textLabel, let cellDetailLabel = cell.detailTextLabel {
-            cellLabel.text = name;
-            cellDetailLabel.text = address;
+        let cellIdentifier = "Restaurant";
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as?
+                RestaurantTableViewCell
+                else {
+            fatalError("The dequeued cell is not an instance of RestaurantTableViewCell")
         }
-        
+
+        let restaurant = restaurants[indexPath.row];
+
+        cell.restaurantName.text = restaurant.name;
+        cell.restaurantImage.image = restaurant.image;
+        cell.restaurantAddress.text = restaurant.address;
+
         return cell;
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Restaurnts With Yelp API"
+        return "Restaurants - Yelp API"
     }
 
 }

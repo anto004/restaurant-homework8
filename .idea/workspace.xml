@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3afb7fae-3cfa-441a-a3ed-36a784c72480" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Homework8/Assets.xcassets/ice-cream.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework8/Assets.xcassets/ice-cream.imageset/R119792_13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework8/Restaurant.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework8/RestaurantTableViewCell.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework8/RestaurantTableViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Restaurant.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework8.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework8/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework8/RestaurantTableViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8/RestaurantTableViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework8/RestaurantViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8/RestaurantViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework8/Utils.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8/Utils.swift" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/Homework8-gppkkgukbdnfdtglnmajqersukaa/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,27 +30,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="swift" value="4" />
+          <entry key="swift" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Swift" value="4" />
+          <entry key="Swift" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="swift" value="3011" />
+          <entry key="swift" value="4635" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Swift" value="3011" />
+          <entry key="Swift" value="4635" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.appcode.build">
         <counts>
-          <entry key="buildservice" value="36" />
+          <entry key="buildservice" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.cidr.testingFrameworks.usages" />
@@ -60,29 +59,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Homework8/RestaurantViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Homework8/RestaurantTableViewController.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Homework8/RestaurantTableViewCell.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+            <state relative-caret-position="272">
+              <caret line="99" column="54" selection-start-line="99" selection-start-column="54" selection-end-line="99" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -90,8 +71,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Homework8/Utils.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="63" />
+            <state relative-caret-position="103">
+              <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Restaurant.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -104,10 +94,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Homework8/Utils.swift" />
-        <option value="$PROJECT_DIR$/Homework8/RestaurantViewController.swift" />
         <option value="$PROJECT_DIR$/Homework8/RestaurantTableViewCell.swift" />
         <option value="$PROJECT_DIR$/Homework8/RestaurantTableViewController.swift" />
+        <option value="$PROJECT_DIR$/Homework8/Utils.swift" />
+        <option value="$PROJECT_DIR$/Restaurant.swift" />
+        <option value="$PROJECT_DIR$/Homework8/RestaurantViewController.swift" />
       </list>
     </option>
   </component>
@@ -118,8 +109,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="580" />
-    <option name="y" value="28" />
+    <option name="x" value="465" />
+    <option name="y" value="23" />
     <option name="width" value="975" />
     <option name="height" value="877" />
   </component>
@@ -149,6 +140,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="Homework8" />
     <property name="SearchEverywhereHistoryKey" value="utils&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -187,15 +179,15 @@
       <option name="presentableId" value="Default" />
       <updated>1536189352773</updated>
       <workItem from="1536189354433" duration="9059000" />
-      <workItem from="1536274176289" duration="1524000" />
+      <workItem from="1536274176289" duration="5278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10583000" />
+    <option name="totallyTimeSpent" value="14337000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="580" y="28" width="975" height="877" extended-state="0" />
+    <frame x="465" y="23" width="975" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24973205" />
@@ -204,14 +196,14 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3299363" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3299363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3299363" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3299363" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -228,31 +220,38 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Homework8/RestaurantViewController.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Homework8/Utils.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Homework8/RestaurantTableViewCell.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+        <state relative-caret-position="285">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Homework8/RestaurantTableViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="-122">
+          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Homework8/Utils.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restaurant.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Homework8/RestaurantViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="99" column="54" selection-start-line="99" selection-start-column="54" selection-end-line="99" selection-end-column="54" />
         </state>
       </provider>
     </entry>
