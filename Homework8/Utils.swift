@@ -20,15 +20,20 @@ struct Utils {
                         if let name = restaurant["name"] as? String,
                            let location = restaurant["location"] as? [String: Any],
                            let address = location["display_address"] as? [String],
-                            let imageUrl = restaurant["image_url"] as? String{
+                            let imageUrl = restaurant["image_url"] as? String,
+                            let coordinates = restaurant["coordinates"] as? [String: Any],
+                            let latitude = (coordinates["latitude"] as? NSNumber)?.doubleValue,
+                            let longitude = (coordinates["longitude"] as? NSNumber)?.doubleValue{
                             var stringAddress = "";
 
                             for line in address {
                                 stringAddress.append(line);
                             }
-                            //print("\(name) \(stringAddress) \(imageUrl)")
-
-                            restaurants.append(Restaurant(name: name, address: stringAddress, imageUrl: imageUrl))
+                            
+                            //print("\(name) \(stringAddress) \(imageUrl) \(latitude) \(longitude)")
+                            
+                            restaurants.append(Restaurant(name: name, address: stringAddress, imageUrl: imageUrl,
+                                                          latitude: latitude, longitude: longitude));
                         }
 
                     }
@@ -39,4 +44,10 @@ struct Utils {
         return restaurants;
     }
 
+}
+
+extension String {
+    func toDouble() -> Double? {
+        return NumberFormatter().number(from: self)?.doubleValue;
+    }
 }

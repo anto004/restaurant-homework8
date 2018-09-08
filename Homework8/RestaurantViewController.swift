@@ -20,6 +20,8 @@ class RestaurantViewController: UITableViewController, UISplitViewControllerDele
 
     var restaurants = [Restaurant]();
 
+    var currentRestaurant: Restaurant?;
+
     let myIndicator = MyIndicator();
     
     var locationManager = CLLocationManager()
@@ -72,7 +74,9 @@ class RestaurantViewController: UITableViewController, UISplitViewControllerDele
                                 }
                                 //Create new Restaurant object with image
                                 if let name = restaurant.name, let address = restaurant.address{
-                                    self.restaurants.append(Restaurant(name: name, address: address, image: restaurantImage))
+
+                                    self.restaurants.append(Restaurant(name: name, address: address, image: restaurantImage,
+                                            latitude: restaurant.latitude, longitude: restaurant.longitude));
                                 }
                             }
                             DispatchQueue.main.sync {
@@ -127,11 +131,13 @@ class RestaurantViewController: UITableViewController, UISplitViewControllerDele
                     fatalError("The dequeued cell is not an instance of RestaurantTableViewCell")
                 }
 
-        let restaurant = restaurants[indexPath.row];
+        currentRestaurant = restaurants[indexPath.row];
 
-        cell.restaurantName.text = restaurant.name;
-        cell.restaurantImage.image = restaurant.image;
-        cell.restaurantAddress.text = restaurant.address;
+        if let restaurant = currentRestaurant {
+            cell.restaurantName.text = restaurant.name;
+            cell.restaurantImage.image = restaurant.image;
+            cell.restaurantAddress.text = restaurant.address;
+        }
 
         return cell;
     }
@@ -152,6 +158,13 @@ class RestaurantViewController: UITableViewController, UISplitViewControllerDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MapNavigationViewController {
             destination.title = "Let's get you there!"
+            if let cell = sender as? RestaurantTableViewCell {
+                let restaurantLocation = CLLocationCoordinate2D(latitude: currentLatitude!, longitude: currentLongitude!)
+                destination.artwork = Artwork(name: (cell.restaurantName.text)!,
+                        address: cell.restaurantAddress.text!, coordinate: restaurantLocation);
+
+                destination.restaurant = currentRestaurant;
+            }
         }
     }
 }

@@ -19,18 +19,30 @@ class MapNavigationViewController: UIViewController{
     
     let regionRadius: CLLocationDistance = 1000;
     
+    var artwork: Artwork?;
+
+    var restaurant: Restaurant?;
+    
+    var artworkValue: Artwork {
+        get{
+            return artwork!;
+        }
+        set{
+            artwork = newValue;
+        }
+    }
     
     @IBOutlet weak var mapView: MKMapView!
     
     
     override func viewDidLoad() {
-//        locationManager.delegate = self;
-//        locationManager.requestWhenInUseAuthorization();
-        
-        //locationManager.requestLocation();
+
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("View did appear")
+        print("\(restaurant ?? nil)")
         if let latitude = currentLatitude, let longitude = currentLongitude {
             let currentLocation = CLLocation(latitude: latitude, longitude: longitude);
             centerMapOnLocation(location: currentLocation)
