@@ -6,85 +6,108 @@
 //  Copyright © 2018 UCLAExtension. All rights reserved.
 //
 
-import UIKit
+import UIKit;
+import CoreLocation;
 
 //TODO: Master Detail view
 //Master: self Detail is Map view with user location to restaurant
 
 
 class RestaurantViewController: UITableViewController, UISplitViewControllerDelegate {
-    let latitude = 34.119193;
-    let longitude = -118.112650;
+    var currentLatitude: Double?;
+    
+    var currentLongitude: Double?;
 
     var restaurants = [Restaurant]();
 
     let myIndicator = MyIndicator();
     
+    var locationManager = CLLocationManager()
+    
+    let group = DispatchGroup();
+    
     @IBOutlet var restaurantTableView: UITableView!
 
     func apiCall() {
-        //Using Yelp API to find restaurants nearby
-        let baseURL = "https://api.yelp.com/v3/businesses/search?term=restaurant&latitude=\(self.latitude)&longitude=\(self.longitude)";
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-
-            if let url = URL(string: baseURL){
-                let session = URLSession.shared;
-
-                let request = NSMutableURLRequest(url: url);
-                request.httpMethod = "GET";
-
-                let token = "Bearer ssrhCpzL11gRI-IHI4sMw9gT09tSMSxnJQdhcRs5jtEIY8tp6j8zV0YAZWsyuUCWeSw4MGRcN_828M-8I7Lu2J2cHlOqf1iOvRBww90RTAEZnsa7ZqPssg8_H1yQW3Yx";
-
-                request.setValue(token, forHTTPHeaderField: "Authorization");
-
-                let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
-                    if error != nil {
-                        print("error: \(error!)")
-                        return;
-                    }
-
-                    if let urlContent = data {
-                        //Parse Data
-                        let restaurantsArray = Utils.parseJson(urlContent);
-
-                        for restaurant in restaurantsArray{
-                            //Get restaurant image
-                            var restaurantImage = UIImage();
-                            if let imageUrl = restaurant.imageUrl, let url = URL(string: imageUrl) {
-                                let imageContent = try? Data(contentsOf: url);
-
-                                if let imageData = imageContent {
-                                    if let image = UIImage(data: imageData){
-                                        restaurantImage = image;
-                                    }
-                                }
-                            }
-                            //Create new Restaurant object with image
-                            if let name = restaurant.name, let address = restaurant.address{
-                                self.restaurants.append(Restaurant(name: name, address: address, image: restaurantImage))
-                            }
-                        }
-                        DispatchQueue.main.sync {
-                            self.restaurantTableView.reloadData();
-                            self.myIndicator.indicator.stopAnimating();
+        if let latitude = currentLatitude, let longitude = currentLongitude {
+            self.myIndicator.callIndicator(controller: self);
+            self.myIndicator.indicator.startAnimating();
+            
+            //Using Yelp API to find restaurants nearby
+            let baseURL = "https://api.yelp.com/v3/businesses/search?term=restaurant&latitude=\(latitude)&longitude=\(longitude)";
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                
+                if let url = URL(string: baseURL){
+                    let session = URLSession.shared;
+                    
+                    let request = NSMutableURLRequest(url: url);
+                    request.httpMethod = "GET";
+                    
+                    let token = "Bearer ssrhCpzL11gRI-IHI4sMw9gT09tSMSxnJQdhcRs5jtEIY8tp6j8zV0YAZWsyuUCWeSw4MGRcN_828M-8I7Lu2J2cHlOqf1iOvRBww90RTAEZnsa7ZqPssg8_H1yQW3Yx";
+                    
+                    request.setValue(token, forHTTPHeaderField: "Authorization");
+                    
+                    let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
+                        if error != nil {
+                            print("error: \(error!)")
+                            return;
                         }
                         
+                        if let urlContent = data {
+                            //Parse Data
+                            let restaurantsArray = Utils.parseJson(urlContent);
+                            
+                            for restaurant in restaurantsArray{
+                                //Get restaurant image
+                                var restaurantImage = UIImage();
+                                if let imageUrl = restaurant.imageUrl, let url = URL(string: imageUrl) {
+                                    let imageContent = try? Data(contentsOf: url);
+                                    
+                                    if let imageData = imageContent {
+                                        if let image = UIImage(data: imageData){
+                                            restaurantImage = image;
+                                        }
+                                    }
+                                }
+                                //Create new Restaurant object with image
+                                if let name = restaurant.name, let address = restaurant.address{
+                                    self.restaurants.append(Restaurant(name: name, address: address, image: restaurantImage))
+                                }
+                            }
+                            DispatchQueue.main.sync {
+                                self.restaurantTableView.reloadData();
+                                self.myIndicator.indicator.stopAnimating();
+                            }
+                            
+                        }
                     }
+                    
+                    task.resume();
                 }
-
-                task.resume();
             }
         }
     }
     
     
     override func viewDidLoad() {
-        myIndicator.callIndicator(controller: self);
-        myIndicator.indicator.startAnimating();
-
-        //fetch restaurants nearby
-        apiCall();
+        locationManager.delegate = self;
+        locationManager.requestWhenInUseAuthorization();
+        
+        getCurrentLocation();
+    }
+    
+    private func getCurrentLocation(){
+        group.enter();
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.locationManager.requestLocation();
+            self.group.wait(); //Wait for retrieving the current location
+            
+            DispatchQueue.main.sync {
+                //fetch restaurants nearby
+                self.apiCall();
+            }
+        }
     }
 
     
@@ -131,6 +154,24 @@ class RestaurantViewController: UITableViewController, UISplitViewControllerDele
             destination.title = "Let's get you there!"
         }
     }
-    
+}
 
+extension RestaurantViewController: CLLocationManagerDelegate {
+    //When a location is updated
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
+            self.currentLatitude = lat;
+            self.currentLongitude = long;
+            print("RVC latitude: \(self.currentLatitude ?? 0.0 ), longitude: \(self.currentLongitude ?? 0.0)")
+        }
+        else {
+            print("No coordinates")
+        }
+        group.leave();
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Fail with error");
+    }
+    
 }

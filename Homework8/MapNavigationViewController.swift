@@ -22,20 +22,19 @@ class MapNavigationViewController: UIViewController{
     
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBAction func findMeClicked(_ sender: Any) {
-        locationManager.requestLocation();
+    
+    override func viewDidLoad() {
+//        locationManager.delegate = self;
+//        locationManager.requestWhenInUseAuthorization();
         
+        //locationManager.requestLocation();
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         if let latitude = currentLatitude, let longitude = currentLongitude {
             let currentLocation = CLLocation(latitude: latitude, longitude: longitude);
             centerMapOnLocation(location: currentLocation)
         }
-        
-    }
-    
-    override func viewDidLoad() {
-        locationManager.delegate = self;
-        locationManager.requestWhenInUseAuthorization();
-        
     }
     
     private func centerMapOnLocation(location: CLLocation){
