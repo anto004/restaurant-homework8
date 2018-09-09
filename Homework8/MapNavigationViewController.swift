@@ -17,36 +17,36 @@ class MapNavigationViewController: UIViewController{
     
     var currentLongitude: Double?;
     
-    let regionRadius: CLLocationDistance = 1000;
+    let regionRadius: CLLocationDistance = 2000;
     
     var artwork: Artwork?;
 
     var restaurant: Restaurant?;
     
-    var artworkValue: Artwork {
-        get{
-            return artwork!;
-        }
-        set{
-            artwork = newValue;
-        }
-    }
     
     @IBOutlet weak var mapView: MKMapView!
     
     
     override func viewDidLoad() {
-
+        mapView.delegate = self;
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         print("View did appear")
-        print("\(restaurant ?? nil)")
-        if let latitude = currentLatitude, let longitude = currentLongitude {
-            let currentLocation = CLLocation(latitude: latitude, longitude: longitude);
-            centerMapOnLocation(location: currentLocation)
+        if let segueRestaurant = restaurant, let segueArtwork = artwork , let cLatitude = currentLatitude, let cLongitude = currentLongitude{
+            print("\(segueRestaurant)")
+            
+            let currentArtwork = Artwork(name: "Your Location", address: "my address", coordinate: CLLocationCoordinate2D(latitude: cLatitude, longitude: cLongitude))
+            let restaurantLocation = CLLocation(latitude: segueRestaurant.latitude, longitude: segueRestaurant.longitude);
+            
+            let currentLocation = CLLocation(latitude: cLatitude, longitude: cLongitude);
+            
+            centerMapOnLocation(location: restaurantLocation);
+            mapView.addAnnotation(segueArtwork);
+            mapView.addAnnotation(currentArtwork);
         }
+       
     }
     
     private func centerMapOnLocation(location: CLLocation){
@@ -118,4 +118,24 @@ extension MapNavigationViewController: CLLocationManagerDelegate {
         print("Fail with error");
     }
 
+}
+
+extension MapNavigationViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? Artwork else {return nil};
+        let identifier = "marker";
+        var view: MKMarkerAnnotationView;
+        
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation;
+            view = dequeuedView;
+        }
+        else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier);
+            view.canShowCallout = true;
+            view.calloutOffset = CGPoint(x: -5, y: 5);
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure);
+        }
+        return view;
+    }
 }

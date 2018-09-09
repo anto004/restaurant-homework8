@@ -158,12 +158,22 @@ class RestaurantViewController: UITableViewController, UISplitViewControllerDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MapNavigationViewController {
             destination.title = "Let's get you there!"
-            if let cell = sender as? RestaurantTableViewCell {
-                let restaurantLocation = CLLocationCoordinate2D(latitude: currentLatitude!, longitude: currentLongitude!)
-                destination.artwork = Artwork(name: (cell.restaurantName.text)!,
-                        address: cell.restaurantAddress.text!, coordinate: restaurantLocation);
-
-                destination.restaurant = currentRestaurant;
+            
+            if let restaurantClicked = sender as? RestaurantTableViewCell {
+                for restaurant in restaurants {
+                    if restaurantClicked.restaurantName.text! == restaurant.name!{
+                        let restaurantLocation = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+                        destination.currentLatitude = currentLatitude;
+                        destination.currentLongitude = currentLongitude;
+                        destination.restaurant = restaurant;
+                        
+                        if let name = restaurant.name, let address = restaurant.address{
+                            destination.artwork = Artwork(name: name,
+                                                          address: address, coordinate: restaurantLocation);
+                        }
+                        
+                    }
+                }
             }
         }
     }
@@ -175,7 +185,7 @@ extension RestaurantViewController: CLLocationManagerDelegate {
         if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
             self.currentLatitude = lat;
             self.currentLongitude = long;
-            print("RVC latitude: \(self.currentLatitude ?? 0.0 ), longitude: \(self.currentLongitude ?? 0.0)")
+            print("RVC current latitude: \(self.currentLatitude ?? 0.0 ), longitude: \(self.currentLongitude ?? 0.0)")
         }
         else {
             print("No coordinates")
