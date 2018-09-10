@@ -34,7 +34,6 @@
 		F84EF78221408E18004BBD3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F84EF78421408E18004BBD3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F84EF78B21409D88004BBD3B /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
-		F84EF7902140AD27004BBD3B /* jsonData.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = jsonData.geojson; sourceTree = "<group>"; };
 		F84EF7912140AFE6004BBD3B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F87480C42145E0AE00453942 /* ArtworkViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +74,6 @@
 				F84EF77F21408E18004BBD3B /* Assets.xcassets */,
 				F84EF78421408E18004BBD3B /* Info.plist */,
 				F84EF78B21409D88004BBD3B /* RestaurantViewController.swift */,
-				F84EF7902140AD27004BBD3B /* jsonData.geojson */,
 				F84EF7912140AFE6004BBD3B /* Utils.swift */,
 				F82A5B5D2141DC0800659CAB /* RestaurantTableViewCell.swift */,
 				F82A5B65214216C900659CAB /* MyIndicator.swift */,

@@ -29,9 +29,6 @@ struct Utils {
                             for line in address {
                                 stringAddress.append(line);
                             }
-                            
-                            //print("\(name) \(stringAddress) \(imageUrl) \(latitude) \(longitude)")
-                            
                             restaurants.append(Restaurant(name: name, address: stringAddress, imageUrl: imageUrl,
                                                           latitude: latitude, longitude: longitude));
                         }

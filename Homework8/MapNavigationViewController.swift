@@ -40,7 +40,6 @@ class MapNavigationViewController: UIViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("View did appear")
         if let segueRestaurant = restaurant, let segueArtwork = artwork{
             let restaurantLocation = CLLocation(latitude: segueRestaurant.latitude, longitude: segueRestaurant.longitude);
             
@@ -70,9 +69,7 @@ class MapNavigationViewController: UIViewController{
             artwork = Artwork(name: "I'm here", address: address, coordinate: location, image: UIImage(named: "my-app")!)
         }
         return artwork ?? nil;
-        
     }
-    
 }
 
 
@@ -155,11 +152,6 @@ extension MapNavigationViewController: MKMapViewDelegate {
             view = MKMarkerAnnotationView(annotation: artwork, reuseIdentifier: identifier);
             view.canShowCallout = true;
             view.calloutOffset = CGPoint(x: -5, y: 5);
-            
-            //To make only the accessory clickable
-//            let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,
-//                                                    size: CGSize(width: 30, height: 30)))
-//            mapsButton.setBackgroundImage(artwork.image, for: UIControlState())
             
             let imageButton = UIButton(type: .detailDisclosure);
             imageButton.setBackgroundImage(artwork.image, for: UIControlState());

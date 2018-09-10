@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3afb7fae-3cfa-441a-a3ed-36a784c72480" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Homework8/ArtworkViews.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework8/Assets.xcassets/my-app.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework8/Assets.xcassets/my-app.imageset/avatar_hiphop_guy-512.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework8.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework8/Artwork.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8/Artwork.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework8/MapNavigationViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8/MapNavigationViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework8/RestaurantViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8/RestaurantViewController.swift" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/Homework8-gppkkgukbdnfdtglnmajqersukaa/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Homework8/MapNavigationViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="191">
+              <caret line="35" column="46" lean-forward="true" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -211,12 +205,12 @@
       <workItem from="1536189354433" duration="9059000" />
       <workItem from="1536274176289" duration="7410000" />
       <workItem from="1536377880212" duration="4561000" />
-      <workItem from="1536526936301" duration="2130000" />
+      <workItem from="1536526936301" duration="2483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23160000" />
+    <option name="totallyTimeSpent" value="23513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="465" y="23" width="975" height="877" extended-state="0" />
@@ -314,8 +308,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Homework8/MapNavigationViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="191">
+          <caret line="35" column="46" lean-forward="true" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
         </state>
       </provider>
     </entry>

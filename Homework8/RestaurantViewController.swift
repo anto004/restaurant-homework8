@@ -9,10 +9,6 @@
 import UIKit;
 import CoreLocation;
 
-//TODO: Master Detail view
-//Master: self Detail is Map view with user location to restaurant
-
-
 class RestaurantViewController: UITableViewController, UISplitViewControllerDelegate {
     var currentLatitude: Double?;
     
@@ -185,7 +181,6 @@ extension RestaurantViewController: CLLocationManagerDelegate {
         if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
             self.currentLatitude = lat;
             self.currentLongitude = long;
-            print("RVC current latitude: \(self.currentLatitude ?? 0.0 ), longitude: \(self.currentLongitude ?? 0.0)")
         }
         else {
             print("No coordinates")
