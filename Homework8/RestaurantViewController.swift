@@ -167,9 +167,9 @@ class RestaurantViewController: UITableViewController, UISplitViewControllerDele
                         destination.currentLongitude = currentLongitude;
                         destination.restaurant = restaurant;
                         
-                        if let name = restaurant.name, let address = restaurant.address{
+                        if let name = restaurant.name, let address = restaurant.address, let image = restaurant.image{
                             destination.artwork = Artwork(name: name,
-                                                          address: address, coordinate: restaurantLocation);
+                                                          address: address, coordinate: restaurantLocation, image: image);
                         }
                         
                     }

@@ -23,30 +23,34 @@ class MapNavigationViewController: UIViewController{
 
     var restaurant: Restaurant?;
     
+    var currentLocPlacemark: CLPlacemark?;
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
     
     override func viewDidLoad() {
         mapView.delegate = self;
+        mapView.register(ArtworkView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        
+        lookUpCurrentLocation { (placemark) in
+            self.currentLocPlacemark = placemark;
+        }
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         print("View did appear")
-        if let segueRestaurant = restaurant, let segueArtwork = artwork , let cLatitude = currentLatitude, let cLongitude = currentLongitude{
-            print("\(segueRestaurant)")
-            
-            let currentArtwork = Artwork(name: "Your Location", address: "my address", coordinate: CLLocationCoordinate2D(latitude: cLatitude, longitude: cLongitude))
+        if let segueRestaurant = restaurant, let segueArtwork = artwork{
             let restaurantLocation = CLLocation(latitude: segueRestaurant.latitude, longitude: segueRestaurant.longitude);
-            
-            let currentLocation = CLLocation(latitude: cLatitude, longitude: cLongitude);
             
             centerMapOnLocation(location: restaurantLocation);
             mapView.addAnnotation(segueArtwork);
-            mapView.addAnnotation(currentArtwork);
+            
+            if let currentArtwork = getCurrentArtwork(){
+                mapView.addAnnotation(currentArtwork);
+            }
         }
-       
     }
     
     private func centerMapOnLocation(location: CLLocation){
@@ -54,7 +58,23 @@ class MapNavigationViewController: UIViewController{
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    private func getCurrentArtwork() -> Artwork? {
+        var artwork: Artwork?;
+        if let cPlacemark = currentLocPlacemark, let cLatitude = self.currentLatitude, let cLongitude =
+            self.currentLongitude {
+            let location = CLLocationCoordinate2D(latitude: cLatitude, longitude: cLongitude);
+            var address = cPlacemark.name! + " ";
+            address += cPlacemark.locality! + " ";
+            address += cPlacemark.administrativeArea! + " ";
+            address += cPlacemark.postalCode!;
+            artwork = Artwork(name: "I'm here", address: address, coordinate: location, image: UIImage(named: "my-app")!)
+        }
+        return artwork ?? nil;
+        
+    }
+    
 }
+
 
 extension MapNavigationViewController: CLLocationManagerDelegate {
     //Start the updating location
@@ -107,6 +127,7 @@ extension MapNavigationViewController: CLLocationManagerDelegate {
             //convert latitude and longitude to placemark
             lookUpCurrentLocation { placemark in
                 print("\(placemark?.name ?? "unknown name"), \(placemark?.locality ?? "unknown locality")")
+                self.currentLocPlacemark = placemark;
             }
         }
         else {
@@ -122,20 +143,33 @@ extension MapNavigationViewController: CLLocationManagerDelegate {
 
 extension MapNavigationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? Artwork else {return nil};
+        guard let artwork = annotation as? Artwork else {return nil};
         let identifier = "marker";
         var view: MKMarkerAnnotationView;
         
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
-            dequeuedView.annotation = annotation;
+            dequeuedView.annotation = artwork;
             view = dequeuedView;
         }
         else {
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier);
+            view = MKMarkerAnnotationView(annotation: artwork, reuseIdentifier: identifier);
             view.canShowCallout = true;
             view.calloutOffset = CGPoint(x: -5, y: 5);
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure);
+            
+            let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,
+                                                    size: CGSize(width: 30, height: 30)))
+            mapsButton.setBackgroundImage(artwork.image, for: UIControlState())
+        
+            view.rightCalloutAccessoryView = mapsButton;
+            
         }
         return view;
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let artwork = view.annotation as! Artwork;
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving];
+        artwork.mapItem().openInMaps(launchOptions: launchOptions);
     }
 }

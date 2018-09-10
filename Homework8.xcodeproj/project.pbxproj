@@ -18,6 +18,7 @@
 		F84EF78321408E18004BBD3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F84EF78121408E18004BBD3B /* LaunchScreen.storyboard */; };
 		F84EF78C21409D88004BBD3B /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84EF78B21409D88004BBD3B /* RestaurantViewController.swift */; };
 		F84EF7922140AFE6004BBD3B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84EF7912140AFE6004BBD3B /* Utils.swift */; };
+		F87480C52145E0AE00453942 /* ArtworkViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87480C42145E0AE00453942 /* ArtworkViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		F84EF78B21409D88004BBD3B /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		F84EF7902140AD27004BBD3B /* jsonData.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = jsonData.geojson; sourceTree = "<group>"; };
 		F84EF7912140AFE6004BBD3B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F87480C42145E0AE00453942 /* ArtworkViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				F82A5B65214216C900659CAB /* MyIndicator.swift */,
 				F8031DB32143446D007E2EF0 /* MapNavigationViewController.swift */,
 				F8031DB521437966007E2EF0 /* Artwork.swift */,
+				F87480C42145E0AE00453942 /* ArtworkViews.swift */,
 			);
 			path = Homework8;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82A5B5E2141DC0800659CAB /* RestaurantTableViewCell.swift in Sources */,
+				F87480C52145E0AE00453942 /* ArtworkViews.swift in Sources */,
 				F82A5B64214203BE00659CAB /* Restaurant.swift in Sources */,
 				F8031DB621437966007E2EF0 /* Artwork.swift in Sources */,
 				F8031DB42143446D007E2EF0 /* MapNavigationViewController.swift in Sources */,
