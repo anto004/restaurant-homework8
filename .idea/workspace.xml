@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3afb7fae-3cfa-441a-a3ed-36a784c72480" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/Homework8/ArtworkViews.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework8/Assets.xcassets/my-app.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework8/Assets.xcassets/my-app.imageset/avatar_hiphop_guy-512.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework8.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework8/Artwork.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Homework8/Artwork.swift" afterDir="false" />
@@ -56,12 +58,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="swift" value="6567" />
+          <entry key="swift" value="6620" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Swift" value="6567" />
+          <entry key="Swift" value="6620" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.appcode.build">
@@ -84,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Homework8/MapNavigationViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+            <state relative-caret-position="-4">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -102,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Homework8/ArtworkViews.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+            <state relative-caret-position="210">
+              <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -141,11 +143,11 @@
         <option value="$PROJECT_DIR$/Homework8/RestaurantTableViewController.swift" />
         <option value="$PROJECT_DIR$/Homework8/MyIndicator.swift" />
         <option value="$PROJECT_DIR$/Homework8/Utils.swift" />
-        <option value="$PROJECT_DIR$/Homework8/MapNavigationViewController.swift" />
         <option value="$PROJECT_DIR$/Restaurant.swift" />
         <option value="$PROJECT_DIR$/Homework8/Artwork.swift" />
         <option value="$PROJECT_DIR$/Homework8/RestaurantViewController.swift" />
         <option value="$PROJECT_DIR$/Homework8/ArtworkViews.swift" />
+        <option value="$PROJECT_DIR$/Homework8/MapNavigationViewController.swift" />
       </list>
     </option>
   </component>
@@ -209,16 +211,15 @@
       <workItem from="1536189354433" duration="9059000" />
       <workItem from="1536274176289" duration="7410000" />
       <workItem from="1536377880212" duration="4561000" />
-      <workItem from="1536526936301" duration="1669000" />
+      <workItem from="1536526936301" duration="2130000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22699000" />
+    <option name="totallyTimeSpent" value="23160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="465" y="23" width="975" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2550911" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -297,13 +298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Homework8/MapNavigationViewController.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Homework8/Artwork.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -313,8 +307,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Homework8/ArtworkViews.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        <state relative-caret-position="210">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Homework8/MapNavigationViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>

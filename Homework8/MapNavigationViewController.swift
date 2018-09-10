@@ -156,11 +156,15 @@ extension MapNavigationViewController: MKMapViewDelegate {
             view.canShowCallout = true;
             view.calloutOffset = CGPoint(x: -5, y: 5);
             
-            let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,
-                                                    size: CGSize(width: 30, height: 30)))
-            mapsButton.setBackgroundImage(artwork.image, for: UIControlState())
-        
-            view.rightCalloutAccessoryView = mapsButton;
+            //To make only the accessory clickable
+//            let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,
+//                                                    size: CGSize(width: 30, height: 30)))
+//            mapsButton.setBackgroundImage(artwork.image, for: UIControlState())
+            
+            let imageButton = UIButton(type: .detailDisclosure);
+            imageButton.setBackgroundImage(artwork.image, for: UIControlState());
+            
+            view.rightCalloutAccessoryView = imageButton;
             
         }
         return view;
